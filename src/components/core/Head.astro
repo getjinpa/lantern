@@ -1,0 +1,56 @@
+---
+import { withBase } from '../../utils/paths';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  siteConfig: any;
+}
+
+const { title, description, image, type = 'website', siteConfig } = Astro.props;
+
+const siteTitle  = siteConfig.site.title;
+const siteDesc   = siteConfig.site.description;
+const siteUrl    = siteConfig.site.url?.replace(/\/$/, '') || '';
+
+const pageTitle  = title ? `${title} — ${siteTitle}` : siteTitle;
+const pageDesc   = description || siteDesc;
+const ogImage    = image || `${siteUrl}/og-default.jpg`;
+const canonical  = new URL(Astro.url.pathname, siteUrl).href;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Primary -->
+<title>{pageTitle}</title>
+<meta name="description" content={pageDesc} />
+<link rel="canonical" href={canonical} />
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+
+<!-- Google Fonts: Playfair Display + Lora -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,700&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap"
+  rel="stylesheet"
+/>
+
+<!-- Open Graph -->
+<meta property="og:type"        content={type} />
+<meta property="og:url"         content={canonical} />
+<meta property="og:title"       content={pageTitle} />
+<meta property="og:description" content={pageDesc} />
+<meta property="og:image"       content={ogImage} />
+<meta property="og:site_name"   content={siteTitle} />
+
+<!-- Twitter Card -->
+<meta name="twitter:card"        content="summary_large_image" />
+<meta name="twitter:title"       content={pageTitle} />
+<meta name="twitter:description" content={pageDesc} />
+<meta name="twitter:image"       content={ogImage} />

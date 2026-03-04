@@ -1,0 +1,30 @@
+{
+  "demo": true,
+  "demoMessage": "Sample template — Lama Karma Dorje is a fictional character; portrait is AI-generated",
+  "site": {
+    "title": "Lama Karma Dorje",
+    "description": "Official website of Lama Karma Dorje — Tibetan Buddhist teacher, author, and retreat master based in Bir, Himachal Pradesh.",
+    "url": "https://username.github.io",
+    "basePath": "",
+    "language": "en"
+  },
+  "navigation": {
+    "main": [
+      { "label": "Home",      "url": "/" },
+      { "label": "Biography", "url": "/biography/" },
+      { "label": "Teachings", "url": "/teachings/" },
+      { "label": "Schedule",  "url": "/schedule/" },
+      { "label": "Contact",   "url": "/contact/" }
+    ]
+  },
+  "contact": {
+    "address": "Bir Tibetan Colony, Bir, Himachal Pradesh 176077, India",
+    "email": "office@lamakarmadorje.org",
+    "phone": ""
+  },
+  "seo": {
+    "titleTemplate": "%s — Lama Karma Dorje",
+    "ogImage": ""
+  },
+  "jinpaKey": ""
+}

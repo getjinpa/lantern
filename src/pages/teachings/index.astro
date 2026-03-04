@@ -1,0 +1,180 @@
+---
+import Base from '../../layouts/Base.astro';
+import { withBase } from '../../utils/paths';
+
+const teachings = [
+  {
+    id: 'mahamudra',
+    icon: '☸',
+    title: 'Mahamudra',
+    subtitle: 'The Great Seal',
+    tag: 'Advanced',
+    tagClass: '',
+    description: 'Mahamudra — "the Great Seal" — is the pinnacle of the Kagyu path, pointing directly to the nature of mind as primordially pure and luminous. Through a graduated series of practices ranging from calm abiding (shamatha) to insight meditation (vipashyana), the practitioner learns to recognise and rest in the awareness that has always been present, untouched by thought or emotion. Lama Karma Dorje received this transmission in its complete form from Khenpo Tsultrim Gyamtso Rinpoche.',
+    resources: ['Introduction to Mahamudra (3-day retreat)', 'The Lamp of Mahamudra — textual study'],
+  },
+  {
+    id: 'bodhicitta',
+    icon: '❂',
+    title: 'Bodhicitta',
+    subtitle: 'The Mind of Awakening',
+    tag: 'Core',
+    tagClass: 'card-tag--saffron',
+    description: 'Bodhicitta — the aspiration to attain enlightenment for the benefit of all sentient beings — is the heart of the Mahayana path. Lama Karma Dorje teaches both relative bodhicitta (the compassionate intention) and absolute bodhicitta (the recognition of emptiness) through the classical Lojong mind-training tradition. These teachings are open to all practitioners regardless of background.',
+    resources: ['Seven-Point Mind Training (weekend seminar)', 'Training the Mind — textual study'],
+  },
+  {
+    id: 'lamrim',
+    icon: '⊕',
+    title: 'Lamrim',
+    subtitle: 'The Graduated Path',
+    tag: 'Foundational',
+    tagClass: 'card-tag--gold',
+    description: 'The Lamrim — the "graduated path to enlightenment" — provides a systematic framework for the entire Buddhist path, from contemplating the preciousness of human life through to the final attainment of Buddhahood. Lama Karma Dorje teaches the Kagyu version of this curriculum, drawing on Gampopa\'s Jewel Ornament of Liberation as the primary source text.',
+    resources: ['Precious Human Life (introductory talk series)', 'Jewel Ornament of Liberation — textual study'],
+  },
+  {
+    id: 'lojong',
+    icon: '◈',
+    title: 'Lojong',
+    subtitle: 'Mind Training',
+    tag: 'Transformational',
+    tagClass: 'card-tag--saffron',
+    description: 'The Lojong mind-training teachings offer a radical technology for transforming adversity into the path. Through slogans, contemplations, and meditation practices, the practitioner learns to use every difficult circumstance — illness, loss, conflict — as fuel for the cultivation of compassion. These teachings are among the most practical and applicable in the entire Tibetan Buddhist canon.',
+    resources: ['Working with Difficult Emotions (online course)', 'Training the Mind — textual study'],
+  },
+  {
+    id: 'dzogchen',
+    icon: '✦',
+    title: 'Dzogchen',
+    subtitle: 'The Great Perfection',
+    tag: 'Advanced',
+    tagClass: '',
+    description: 'From the Nyingma lineage received from Tulku Urgyen Rinpoche, Lama Karma Dorje offers occasional teachings on Dzogchen — the highest teaching of the Nyingma school — pointing directly to rigpa, the primordial awareness that is already fully awakened. These teachings are offered only to practitioners who have a stable foundation in preliminary practices.',
+    resources: ['Dzogchen Introduction (by invitation)', 'Chöd Practice Transmission'],
+  },
+  {
+    id: 'ngondro',
+    icon: '⊗',
+    title: 'Ngondro',
+    subtitle: 'The Four Foundations',
+    tag: 'Foundational',
+    tagClass: 'card-tag--gold',
+    description: 'The Ngondro — the four foundation practices of the Kagyu tradition — are the essential preparation for all higher Vajrayana teachings. They comprise 100,000 prostrations with refuge, 100,000 Vajrasattva purification recitations, 100,000 mandala offerings, and 100,000 Guru Yoga practices. Lama Karma Dorje offers guidance and transmission for Ngondro in both residential and online formats.',
+    resources: ['Ngondro Transmission (in person, Bir)', 'Monthly Ngondro Practice Sessions (online)'],
+  },
+];
+---
+
+<Base
+  title="Teachings"
+  description="Explore the complete range of Lama Karma Dorje's Buddhist teachings — from the Four Foundations to Mahamudra and Dzogchen."
+>
+
+  <!-- ── Page Hero ──────────────────────────────────────────── -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <span class="hero-eyebrow" style="margin-bottom:1rem;">Kagyu · Nyingma</span>
+      <h1>Teachings</h1>
+      <p>A comprehensive path from the foundational practices to the most profound instructions on the nature of mind. All teachings are transmitted in their complete, authentic form.</p>
+    </div>
+  </section>
+
+  <!-- ── Teachings Intro ─────────────────────────────────────── -->
+  <section class="section--sm" style="background:var(--color-bg-warm);">
+    <div class="container" style="max-width:820px;text-align:center;">
+      <span class="section-eyebrow">An Authentic Transmission</span>
+      <h2 style="font-size:clamp(1.75rem,3.5vw,2.5rem);color:var(--color-primary);margin-bottom:1.25rem;">
+        The Living Tradition of the Kagyu Lineage
+      </h2>
+      <p style="color:var(--color-text-muted);line-height:1.85;font-size:1.0625rem;">
+        The teachings offered at Norbu Ling are not academic presentations or scholarly reconstructions — they are living transmissions, carried in an unbroken chain of oral instruction from teacher to student over fifteen centuries. Lama Karma Dorje regards the preservation and transmission of these teachings as his primary responsibility, and he approaches each teaching with the same care and precision with which he received them from his own teachers.
+      </p>
+      <p style="color:var(--color-text-muted);line-height:1.85;font-size:1.0625rem;margin-top:1rem;">
+        Students are welcome at all levels of experience. The teachings are offered freely to all who approach them with sincerity and an open mind.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Teachings Grid ─────────────────────────────────────── -->
+  <section class="section" style="background:var(--color-bg);">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-eyebrow">All Teachings</span>
+        <h2>Topics and Traditions</h2>
+        <p>Six principal areas of study and practice offered by Lama Karma Dorje.</p>
+      </div>
+
+      <div class="teachings-grid">
+        {teachings.map(t => (
+          <article class="teaching-card" id={t.id}>
+            <span class="teaching-icon">{t.icon}</span>
+            <span class={`card-tag ${t.tagClass}`} style="margin-bottom:0.75rem;">{t.tag}</span>
+            <h3>{t.title}</h3>
+            <p style="font-size:0.875rem;font-style:italic;color:var(--color-secondary);font-weight:600;margin-bottom:0.75rem;">{t.subtitle}</p>
+            <p>{t.description}</p>
+            {t.resources.length > 0 && (
+              <div style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid var(--color-border);">
+                <p style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:0.5rem;">Related programmes</p>
+                <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:0.4rem;">
+                  {t.resources.map(r => (
+                    <li style="font-size:0.8125rem;color:var(--color-text-muted);">→ {r}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── How to Receive Teachings ────────────────────────────── -->
+  <section class="section--sm" style="background:var(--color-bg-warm);">
+    <div class="container" style="max-width:820px;">
+      <div class="section-heading">
+        <span class="section-eyebrow">Getting Started</span>
+        <h2>How to Receive Teachings</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;gap:1.5rem;" class="steps-grid">
+        <div class="notice-box">
+          <strong>Step 1 — Attend an introductory talk</strong><br />
+          All are welcome to attend Lama Karma Dorje's introductory talks, which are offered free of charge at Norbu Ling and online. No prior experience of meditation or Buddhism is necessary.
+        </div>
+        <div class="notice-box">
+          <strong>Step 2 — Begin the foundation practices</strong><br />
+          Students who wish to deepen their practice are encouraged to receive the Ngondro transmission and begin the four foundation practices under guidance. These lay the essential groundwork for all higher teachings.
+        </div>
+        <div class="notice-box">
+          <strong>Step 3 — Enter retreat</strong><br />
+          Norbu Ling offers a structured annual retreat programme. Shorter retreats (3–14 days) are open to all students. Longer, closed retreats (3 months to 3 years) are available to students with an established practice.
+        </div>
+        <div class="notice-box">
+          <strong>Requesting personal guidance</strong><br />
+          Students who have attended at least one teaching may request a private meeting with Lama Karma Dorje through the office. Such meetings are offered in the spirit of guru-student relationship and should be approached with sincerity and preparation.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Teachings CTA ──────────────────────────────────────── -->
+  <section class="footer-cta" style="padding:4rem 1.5rem;">
+    <div class="footer-cta-content">
+      <h2 style="font-size:clamp(1.875rem,3.5vw,2.75rem);">Join a Teaching or Retreat</h2>
+      <p>View the full schedule of upcoming teachings, retreats, and empowerments — both in-person at Norbu Ling and online.</p>
+      <div class="gap-cta" style="justify-content:center;">
+        <a href={withBase('/schedule/')} class="btn btn--gold btn--lg">View Schedule</a>
+        <a href={withBase('/contact/')} class="btn btn--outline-light">Contact the Office</a>
+      </div>
+    </div>
+  </section>
+
+</Base>
+
+<style>
+  @media (min-width: 768px) {
+    .steps-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+  }
+</style>

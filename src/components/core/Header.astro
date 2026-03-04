@@ -1,0 +1,98 @@
+---
+import { withBase, stripBase } from '../../utils/paths';
+
+interface Props {
+  siteConfig: any;
+}
+const { siteConfig } = Astro.props;
+const nav = siteConfig.navigation?.main || [];
+
+// Determine active page for nav highlighting
+const pathname = stripBase(Astro.url.pathname);
+---
+
+<header class="site-header">
+  <div class="container">
+    <!-- Logo -->
+    <a href={withBase('/')} class="site-logo" aria-label="Lama Karma Dorje — Home">
+      <span class="site-logo-name">Lama Karma Dorje</span>
+      <span class="site-logo-subtitle">Buddhist Teacher</span>
+    </a>
+
+    <!-- Desktop / Mobile Nav -->
+    <nav class="site-nav" aria-label="Main navigation">
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="nav-links"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        {nav.map((item: { label: string; url: string }) => {
+          const href = withBase(item.url);
+          const isActive =
+            item.url === '/'
+              ? pathname === '/'
+              : pathname.startsWith(item.url);
+          const isTeachings = item.label === 'Teachings';
+          return (
+            <li>
+              <a
+                href={href}
+                class:list={[
+                  isTeachings ? 'nav-cta' : '',
+                  isActive && !isTeachings ? 'active' : '',
+                ]}
+                aria-current={isActive ? 'page' : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const links  = document.getElementById('nav-links');
+
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const isOpen = links.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      // Prevent body scroll when mobile menu open
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+
+    // Close on nav link click (mobile)
+    links.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close on Escape
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && links.classList.contains('open')) {
+        links.classList.remove('open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        toggle.focus();
+      }
+    });
+  }
+</script>

@@ -1,0 +1,212 @@
+---
+import Base from '../layouts/Base.astro';
+import { withBase } from '../utils/paths';
+---
+
+<Base
+  title="Home"
+  description="Official website of Lama Karma Dorje — Tibetan Buddhist teacher, author, and retreat master based in Bir, Himachal Pradesh."
+>
+
+  <!-- ═══════════════════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-eyebrow">Kagyu Lineage · Bir, India</span>
+      <h1>
+        May all beings be<br />
+        <em>free from suffering</em>
+      </h1>
+      <p class="hero-subtitle">
+        Lama Karma Dorje is a Tibetan Buddhist teacher of the Kagyu tradition, offering the ancient wisdom of Mahamudra and Bodhicitta to students around the world.
+      </p>
+      <div class="hero-cta">
+        <a href={withBase('/teachings/')} class="btn btn--gold btn--lg">Explore Teachings</a>
+        <a href={withBase('/schedule/')} class="btn btn--outline-light btn--lg">View Schedule</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       ABOUT STRIP
+  ══════════════════════════════════════════════════════════ -->
+  <section class="about-strip">
+    <div class="container">
+      <div class="about-photo">
+        <img
+          src="https://images.unsplash.com/photo-1603988363607-e1e4a66962c6?w=600&q=80"
+          alt="Lama Karma Dorje — portrait (AI-generated for demo purposes)"
+          loading="lazy"
+          width="600"
+          height="800"
+        />
+      </div>
+      <div class="about-text">
+        <span class="section-eyebrow">About Lama Karma Dorje</span>
+        <h2>A Life in Service of the Dharma</h2>
+        <p class="subtitle">Retreat Master · Lineage Holder · Author</p>
+        <p>
+          Born in Nangchen, Kham, eastern Tibet, Lama Karma Dorje received his monastic training under some of the most revered masters of the twentieth century. After fleeing to India in 1974, he continued his studies at Rumtek Monastery in Sikkim under the guidance of H.H. the 16th Karmapa.
+        </p>
+        <p>
+          Over four decades of intensive retreat and study, Lama Karma Dorje has transmitted the profound teachings of Mahamudra, the Six Yogas of Naropa, and the complete cycle of Bodhicitta practices to thousands of students across Asia, Europe, and North America.
+        </p>
+        <p>
+          He currently resides at Norbu Ling retreat center in Bir, Himachal Pradesh, where he offers teachings, empowerments, and personal guidance to practitioners of all levels.
+        </p>
+        <div class="gap-cta" style="margin-top:1.75rem;">
+          <a href={withBase('/biography/')} class="btn btn--primary">Read Full Biography</a>
+          <a href={withBase('/contact/')} class="btn btn--outline">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FEATURED TEACHINGS
+  ══════════════════════════════════════════════════════════ -->
+  <section class="featured-teachings">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-eyebrow">Core Teachings</span>
+        <h2>The Path of Wisdom and Compassion</h2>
+        <p>Lama Karma Dorje transmits the complete range of Kagyu and Nyingma practices — from foundational study to the most profound Vajrayana instructions.</p>
+      </div>
+
+      <div class="teachings-featured-grid">
+        <!-- Card 1 -->
+        <article class="card">
+          <div class="card-body">
+            <span class="card-tag">Foundational</span>
+            <h3 class="card-title">The Four Foundations (Ngondro)</h3>
+            <p class="card-excerpt">
+              The essential preliminary practices that purify obscurations, accumulate merit, and establish the proper basis for higher tantric teachings. Includes prostrations, Vajrasattva recitation, mandala offering, and Guru Yoga.
+            </p>
+            <a href={withBase('/teachings/')} class="card-link">Learn more →</a>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <div class="card-body">
+            <span class="card-tag card-tag--saffron">Core Teaching</span>
+            <h3 class="card-title">Mahamudra: The Great Seal</h3>
+            <p class="card-excerpt">
+              The pinnacle of the Kagyu path — direct recognition of mind's nature as luminous and empty. Lama Karma Dorje received this transmission in unbroken lineage from his root teacher Khenpo Tsultrim Gyamtso Rinpoche.
+            </p>
+            <a href={withBase('/teachings/')} class="card-link">Learn more →</a>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <div class="card-body">
+            <span class="card-tag card-tag--gold">Heart Teaching</span>
+            <h3 class="card-title">Bodhicitta: The Mind of Awakening</h3>
+            <p class="card-excerpt">
+              Training the mind in compassion through the Lojong mind-training tradition and the Seven-Point Mind Training of Chekawa Yeshe Dorje. The foundation of all Mahayana practice and the true entrance to the Bodhisattva path.
+            </p>
+            <a href={withBase('/teachings/')} class="card-link">Learn more →</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center" style="margin-top:2.5rem;">
+        <a href={withBase('/teachings/')} class="btn btn--primary">View All Teachings</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       QUOTE SECTION
+  ══════════════════════════════════════════════════════════ -->
+  <section class="quote-section">
+    <div class="quote-inner">
+      <span class="quote-mark">&ldquo;</span>
+      <blockquote>
+        The nature of mind is like the sky — vast, luminous, and beyond all limitation. Clouds arise and dissolve, but the sky itself is never stained. Recognise this, and you have found the path.
+      </blockquote>
+      <p class="quote-attribution">— Lama Karma Dorje, Norbu Ling Retreat, 2019</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       UPCOMING EVENTS
+  ══════════════════════════════════════════════════════════ -->
+  <section class="events-strip">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-eyebrow">Upcoming</span>
+        <h2>Teaching Schedule</h2>
+        <p>Join Lama Karma Dorje in person at Norbu Ling or online via live stream.</p>
+      </div>
+
+      <div class="events-grid">
+        <!-- Event 1 -->
+        <article class="event-card">
+          <div class="event-date">
+            <span class="month">Apr</span>
+            <span class="day">14</span>
+          </div>
+          <div class="event-body">
+            <p class="event-meta">Bir, India · 7 Days</p>
+            <h3>Spring Mahamudra Retreat</h3>
+            <p class="event-desc">An intensive residential retreat on the nature of mind, suitable for practitioners who have completed Ngondro.</p>
+            <a href={withBase('/schedule/')} class="event-link">Details →</a>
+          </div>
+        </article>
+
+        <!-- Event 2 -->
+        <article class="event-card">
+          <div class="event-date">
+            <span class="month">May</span>
+            <span class="day">18</span>
+          </div>
+          <div class="event-body">
+            <p class="event-meta">Online · 2 Days</p>
+            <h3>Introduction to Bodhicitta</h3>
+            <p class="event-desc">A weekend online teaching for beginners exploring the Seven-Point Mind Training and the awakening of compassion.</p>
+            <a href={withBase('/schedule/')} class="event-link">Details →</a>
+          </div>
+        </article>
+
+        <!-- Event 3 -->
+        <article class="event-card">
+          <div class="event-date">
+            <span class="month">Jun</span>
+            <span class="day">21</span>
+          </div>
+          <div class="event-body">
+            <p class="event-meta">Bir, India · 3 Days</p>
+            <h3>Guru Rinpoche Tsok Feast</h3>
+            <p class="event-desc">A sacred gathering on the tenth day of the Tibetan lunar month, including tsok offering, empowerment, and teaching.</p>
+            <a href={withBase('/schedule/')} class="event-link">Details →</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="text-center" style="margin-top:2.5rem;">
+        <a href={withBase('/schedule/')} class="btn btn--outline">Full Schedule →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════
+       FOOTER CTA
+  ══════════════════════════════════════════════════════════ -->
+  <section class="footer-cta">
+    <div class="footer-cta-content">
+      <span class="section-eyebrow" style="color:rgba(255,255,255,0.6);">Begin Your Journey</span>
+      <h2>Step onto the path of awakening</h2>
+      <p>
+        Whether you are a seasoned practitioner or curious newcomer, Lama Karma Dorje welcomes all who wish to explore the Buddha's teachings with sincerity and an open heart.
+      </p>
+      <div class="gap-cta" style="justify-content:center;">
+        <a href={withBase('/teachings/')} class="btn btn--gold btn--lg">Explore Teachings</a>
+        <a href={withBase('/contact/')} class="btn btn--outline-light btn--lg">Contact the Office</a>
+      </div>
+    </div>
+  </section>
+
+</Base>
